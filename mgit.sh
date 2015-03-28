@@ -1,6 +1,6 @@
 #!/bin/bash
 
-directories=`ls -d */`
+directories=`find . -depth 2 -name .git | sed 's/\/\.git//' | sed 's/\.\///'`
 export arguments=$@
 
 clearRepositoriesList() {
