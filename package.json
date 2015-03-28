@@ -2,7 +2,7 @@
   "name": "git-x",
   "version": "1.0.2",
   "description": "run git commands on multiple folders",
-  "repository": "pirelenito/xgit",
+  "repository": "pirelenito/git-x",
   "author": "",
   "bin": {
     "git-x": "./git-x.sh"
