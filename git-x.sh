@@ -4,8 +4,8 @@ directories=`find . -depth 2 -name .git | sed 's/\/\.git//' | sed 's/\.\///'`
 export arguments=$@
 
 clearRepositoriesList() {
-  touch .repositories
-  rm .repositories
+  touch .gitrepositories
+  rm .gitrepositories
 }
 
 runCommand() {
@@ -33,7 +33,7 @@ clone() {
 }
 
 writeRepositoryList() {
-  git -C $1 config --get remote.origin.url >> .repositories
+  git -C $1 config --get remote.origin.url >> .gitrepositories
 }
 
 export -f clone
@@ -42,7 +42,7 @@ export -f runCommand
 
 
 if [[ $1 == "clone" ]]; then
-  cat .repositories | xargs -n1 -I {} bash -c 'clone {}'
+  cat .gitrepositories | xargs -n1 -I {} bash -c 'clone {}'
 else
   clearRepositoriesList
 
