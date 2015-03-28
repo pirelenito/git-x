@@ -1,5 +1,20 @@
 #!/bin/bash
 
-DIRECTORIES=`ls -d */`
+repositories=`ls -d */`
+export arguments=$@
 
-echo $DIRECTORIES | xargs -t -I {} -n1 git -C {} $@
+runCommand() {
+  purple='\033[35m'
+  nc='\033[0m'
+
+  echo -e "${purple}$1${nc}"
+
+  git -C $1 $arguments
+
+  echo
+  return 0
+}
+
+export -f runCommand
+
+echo $repositories | xargs -n1 -I {} bash -c 'runCommand {}'
