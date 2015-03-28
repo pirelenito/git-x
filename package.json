@@ -2,6 +2,12 @@
   "name": "xgit",
   "version": "1.0.0",
   "description": "run git commands on multiple folders",
+  "repository": "pirelenito/xgit",
+  "author": {
+    "name": "Paulo Ragonha",
+    "email": "paulo@ragonha.me",
+    "url": "https://github.com/pirelenito"
+  },
   "bin": {
     "xgit": "./xgit.sh"
   },
