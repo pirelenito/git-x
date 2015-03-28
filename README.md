@@ -14,7 +14,7 @@ git x pull
 
 ## Cloning
 
-It automatically creates a `.gitrepository` file containing the url of all nested repositories, such as:
+It automatically creates a `.gitrepositories` file containing the url of all nested repositories, such as:
 
 ```
 git@github.com:pirelenito/generator-react-webpack-component.git
