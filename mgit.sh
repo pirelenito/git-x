@@ -1,6 +1,6 @@
 #!/bin/bash
 
-repositories=`ls -d */`
+directories=`ls -d */`
 export arguments=$@
 
 clearRepositoriesList() {
@@ -20,14 +20,32 @@ runCommand() {
   return 0
 }
 
+clone() {
+  purple='\033[35m'
+  nc='\033[0m'
+
+  echo -e "${purple}$1${nc}"
+
+  git clone $1
+
+  echo
+  return 0
+}
+
 writeRepositoryList() {
   git -C $1 config --get remote.origin.url >> .repositories
 }
 
+export -f clone
 export -f writeRepositoryList
 export -f runCommand
 
-clearRepositoriesList
 
-echo $repositories | xargs -n1 -I {} bash -c 'runCommand {}'
-echo $repositories | xargs -n1 -I {} bash -c 'writeRepositoryList {}'
+if [[ $1 == "clone" ]]; then
+  cat .repositories | xargs -n1 -I {} bash -c 'clone {}'
+else
+  clearRepositoriesList
+
+  echo $directories | xargs -n1 -I {} bash -c 'runCommand {}'
+  echo $directories | xargs -n1 -I {} bash -c 'writeRepositoryList {}'
+fi
