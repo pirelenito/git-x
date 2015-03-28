@@ -1,11 +1,11 @@
 {
-  "name": "xgit",
+  "name": "git-x",
   "version": "1.0.1",
   "description": "run git commands on multiple folders",
   "repository": "pirelenito/xgit",
   "author": "",
   "bin": {
-    "xgit": "./xgit.sh"
+    "git-x": "./git-x.sh"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
