@@ -12,7 +12,7 @@ runCommand() {
   purple='\033[35m'
   nc='\033[0m'
 
-  echo -e "${purple}$1${nc}"
+  echo -e "${purple}${PWD##*/}/$1${nc}"
 
   git -C $1 $arguments
 
