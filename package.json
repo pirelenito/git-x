@@ -1,6 +1,6 @@
 {
   "name": "git-x",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "run git commands on multiple folders",
   "repository": "pirelenito/git-x",
   "author": "",
