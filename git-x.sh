@@ -46,6 +46,7 @@ if [[ $1 == "clone" ]]; then
 else
   clearRepositoriesList
 
+  runCommand .
   echo $directories | xargs -n1 -I {} bash -c 'runCommand {}'
   echo $directories | xargs -n1 -I {} bash -c 'writeRepositoryList {}'
 fi
