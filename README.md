@@ -10,6 +10,7 @@ The tool detects nested git repositories (one level deep) and run any command yo
 git x status
 git x checkout master
 git x pull
+git x <any valid git command and arguments>
 ```
 
 ## Motivation
