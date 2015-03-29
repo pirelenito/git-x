@@ -66,15 +66,19 @@ It is [Git Submodules](http://www.git-scm.com/book/en/v2/Git-Tools-Submodules) w
 
 ## Cloning
 
-It automatically creates a `.gitrepositories` file containing the url of all nested repositories, such as:
+Another motivation is on-boarding new developers to a project. We wanted to make it easy to clone a parent repository, and from it clone, all the nested repositories.
+
+If run the tool on a git repository, it automatically creates a `.gitrepositories` file containing the URLs for all nested repositories, such as:
 
 ```
-git@github.com:pirelenito/generator-react-webpack-component.git
-git@github.com:pirelenito/react-transition.git
-git@github.com:pirelenito/sagui.git
+git@github.com:fancy-project/frontend-app.git
+git@github.com:fancy-project/library-1.git
+git@github.com:fancy-project/library-2.git
+git@github.com:fancy-project/service-1.git
+git@github.com:fancy-project/service-2.git
 ```
 
-This file can be checked into source control and latter be used to clone all nested repositories:
+This file then can be checked into source control and latter be used to clone all nested repositories by a new developer:
 
 ```bash
 git x clone
