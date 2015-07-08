@@ -1,7 +1,7 @@
 #!/bin/bash
 
-directories=`find . -depth 2 -name .git | sed 's/\/\.git//' | sed 's/\.\///'`
-parentGitRepository=`find . -depth 1 -name .git`
+directories=`find . -maxdepth 2 -name .git | sed 's/\/\.git//' | sed 's/\.\///'`
+parentGitRepository=`find . -maxdepth 1 -name .git`
 export arguments=$@
 
 clearRepositoriesList() {
