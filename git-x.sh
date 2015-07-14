@@ -1,6 +1,6 @@
 #!/bin/bash
 
-directories=`find . -maxdepth 2 -name .git | sed 's/\/\.git//' | sed 's/\.\///'`
+directories=($(find . -maxdepth 2 -name .git | sed 's/\/\.git//' | sed 's/\.\///'))
 parentGitRepository=`find . -maxdepth 1 -name .git`
 export arguments=$@
 
@@ -46,11 +46,11 @@ if [[ $1 == "clone" ]]; then
 else
   if [[ $parentGitRepository == "./.git" ]]; then
     clearRepositoriesList
-    echo $directories | xargs -n1 -I {} bash -c 'writeRepositoryList {}'
+    for repository in ${directories[@]}; do writeRepositoryList $repository; done
 
     # we want to run the git command locally after the repositories list was updated
     runCommand .
   fi
 
-  echo $directories | xargs -n1 -I {} bash -c 'runCommand {}'
+  for repository in ${directories[@]}; do runCommand $repository; done
 fi
