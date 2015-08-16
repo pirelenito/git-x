@@ -1,6 +1,6 @@
 #!/bin/bash
 
-directories=($(find . ! -path ./.git -maxdepth 2 -type d -name .git | sed 's/\/\.git//' | sed 's/\.\///'))
+directories=($(find . -maxdepth 2 -type d -name .git ! -path ./.git | sed 's/\/\.git//' | sed 's/\.\///'))
 parentGitRepository=`find . -maxdepth 1 -name .git`
 export arguments=$@
 
