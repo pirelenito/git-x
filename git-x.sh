@@ -35,6 +35,9 @@ clone() {
 
 writeRepositoryList() {
   git -C $1 config --get remote.origin.url >> .gitrepositories
+
+  # ignores this directory since it is inside other git repository
+  grep -q $1 .gitignore || echo $1 >> .gitignore
 }
 
 export -f clone
